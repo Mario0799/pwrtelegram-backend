@@ -1,0 +1,63 @@
+http://api.pwrtelegram.xyz, https://api.pwrtelegram.xyz, http://deepapi.pwrtelegram.xyz, https://deepapi.pwrtelegram.xyz {
+	root api/
+	errors api.log
+	git https://github.com/pwrtelegram/pwrtelegram {
+		interval 60
+	}
+	cors
+	gzip
+	tls admin@pwrtelegram.xyz {
+		protocols tls1.0 tls1.2
+	}
+	rewrite {
+		to {path} /index.php
+	}
+	fastcgi / unix:/run/php/php7.0-fpm.sock {
+		index index.php
+	}
+}
+http://beta.pwrtelegram.xyz, https://beta.pwrtelegram.xyz, http://deepbeta.pwrtelegram.xyz, https://deepbeta.pwrtelegram.xyz {
+	root beta/
+	errors beta.log
+	cors
+	gzip
+	tls admin@pwrtelegram.xyz {
+		protocols tls1.0 tls1.2
+	}
+	rewrite {
+		to {path} /index.php
+	}
+	fastcgi / unix:/run/php/php7.0-fpm.sock {
+		index index.php
+	}
+}
+http://storage.pwrtelegram.xyz, https://storage.pwrtelegram.xyz, http://deepstorage.pwrtelegram.xyz, https://deepstorage.pwrtelegram.xyz {
+	root api/
+	errors storage.log
+	cors
+	gzip
+	rewrite {
+		to {path} /storage.php
+	}
+	fastcgi / unix:/run/php/php7.0-fpm.sock {
+		index storage.php
+	}
+	tls admin@pwrtelegram.xyz {
+		protocols tls1.0 tls1.2
+	}
+}
+http://betastorage.pwrtelegram.xyz, https://betastorage.pwrtelegram.xyz, http://deepbetastorage.pwrtelegram.xyz, https://deepbetastorage.pwrtelegram.xyz {
+	root beta/
+	errors betastorage.log
+	cors
+	gzip
+	rewrite {
+		to {path} /storage.php
+	}
+	fastcgi / unix:/run/php/php7.0-fpm.sock {
+		index storage.php
+	}
+	tls admin@pwrtelegram.xyz {
+		protocols tls1.0 tls1.2
+	}
+}
