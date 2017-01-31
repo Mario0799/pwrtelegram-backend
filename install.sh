@@ -236,9 +236,9 @@ update-rc.d php7.0-fpm defaults
 [ $(lsb_release -rs | sed 's/\..*//g') == 16 ] && systemctl daemon-reload
 
 service php7.0-fpm restart
+service mysql start
 
 cd $homedir/pwrtelegram/
-pwrexec $homedir/pwrtelegram/update.sh
 
 if [ "$1" != "docker" ];then
 	configure
