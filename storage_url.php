@@ -12,3 +12,4 @@ If not, see <http://www.gnu.org/licenses/>.
 */
 
 $pwrtelegram_storage_domain = 'storage.pwrtelegram.xyz';
+$db_token = '';
