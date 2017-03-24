@@ -74,7 +74,7 @@ configure() {
 	pwrexec "composer update"
         cd $homedir/pwrtelegram
 
-	pwrexec "php $homedir/pwrtelegram/login.php"
+	#pwrexec "php $homedir/pwrtelegram/login.php"
 
 
 	echo "That's it, pretty much!
