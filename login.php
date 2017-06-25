@@ -12,7 +12,7 @@ If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once 'api/vendor/autoload.php';
-require_once '/home/pwrtelegram/pwrtelegram/storage_url.php';
+require_once 'storage_url.php';
 $sessiondir = __DIR__.'/sessions';
 $settings = ['logger' => ['logger' => 1], 'pwr' => ['pwr' => true, 'db_token' => $db_token, 'strict' => true]];
 
@@ -56,4 +56,3 @@ $authorization = $MadelineProto->complete_phone_login($code);
 \danog\MadelineProto\Logger::log($authorization);
 echo 'Serializing MadelineProto to '.$sessiondir.'/deeppwr.madeline...'.PHP_EOL;
 echo 'Wrote '.\danog\MadelineProto\Serialization::serialize($sessiondir.'/deeppwr.madeline', $MadelineProto).' bytes'.PHP_EOL;
-
